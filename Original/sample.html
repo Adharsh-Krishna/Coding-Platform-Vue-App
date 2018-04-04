@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Editor</title>
+
+</head>
+<style>
+  body {
+    overflow: hidden;
+  }
+
+  #editor {
+    margin: 20px 00px 100px 40px;
+    position: absolute;
+    top: 00px;
+    bottom: 30px;
+    left: 0px;
+    right: 0px;
+    padding: 200px;
+  }
+  #navg{
+    background-color: rgb(76, 40, 12);
+    padding: 10px;
+  }
+
+  #constraint{
+    padding :20px;
+  }
+
+
+  #question{
+    padding : 25px;
+  }
+
+  html { overflow-y: scroll; overflow-x:hidden; }
+
+</style>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navg">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CODING PLATFORM</a>
+    </div>
+    <ul class="nav navbar-nav">
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{User}}</a></li>
+      <li></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<div class="container">
+
+  <br><br><br><br><br><br>
+
+
+  <div class="well well-lg"   id="question">   	</div>
+
+
+  <div class="row">
+
+
+    <div class="col-sm-5"><br>
+
+      <div  class="form-group" >
+
+        <label for="comp" >Choose Language:</label>
+
+
+
+        <div class="row">
+
+          <div class="col-sm-4">
+
+            <select id="c" class="form-control">
+
+              <option value="java">Java</option>
+              <option value="c_cpp" selected="selected">C</option>
+              <option value="python">Python</option>
+            </select><br/>
+          </div>
+          <div class="col-sm-4">
+
+            <button type="button" class="btn btn-success"  onclick="Javascript:GetOptions()">GetEditor</button>
+          </div>
+        </div>
+
+
+        <label for="comment"><h4 >Constraints</h4></label>
+
+        <div class="well well-lg"   id="constraint"></div>
+
+
+
+      </div>
+    </div>
+
+    <div class="col-sm-7"><br>
+
+      <pre id="editor"></pre>
+
+    </div>
+
+
+  </div>
+
+</div><br><br><br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+
+      <label for="comment"><h4 >Custom Input</h4></label>
+      <textarea class="form-control" rows="4"  id="comment"></textarea>
+    </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6">
+
+      <br><br>
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+
+
+
+<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+function GetOptions()
+
+{
+
+var e = document.getElementById("c");
+
+var s = e.options[e.selectedIndex].value;
+
+
+    var editor = ace.edit("editor");
+
+    editor.session.setMode("ace/mode/"+ s);
+
+}
+</script>
+
+</body>
+</html>
